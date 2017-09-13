@@ -5,7 +5,7 @@
 	md <- read.table("test.csv", header = TRUE, sep = ',')
 	source("contactsheets.R")
 	
-	key <- contactsheets(md, "testphotos", rows = 4, cols = 3)
+	key <- contactsheets(md, ".", rows = 4, cols = 3)
 	
 #full list of parameters
 # contactsheets <- function(metadata, image_path,
@@ -23,3 +23,4 @@
 	# export = TRUE,
 	# verbose = TRUE
 # )
+

@@ -187,3 +187,4 @@ drawcombopage <- function(dat, runningpagecount, groupname, setname, export) {
 	if(export) dev.off()
 	runningpagecount
 }
+

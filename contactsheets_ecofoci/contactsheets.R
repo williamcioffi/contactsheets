@@ -74,8 +74,14 @@ nset <- length(u_set)
 ####da megaloop####
 ###################
 
-contactsheet_key <- data.frame(id = md$id, set = md$set)
-contactsheet_key[, 'page'] <- NA
+contactsheet_key <- data.frame(
+  id = vector(),
+  name = vector(),
+  sex = vector(),
+  set = vector(),
+  group = vector(),
+  page = vector()
+)
 
 for(s in 1:nset) {
 
@@ -197,9 +203,17 @@ for(g in 1:ngroups) {
 	ngroupid <- length(u_groupid)
 	
 	#add pages to contactsheet_key
-	#this assumes that id-set combinations will always be unique
-	desekeys <- which(paste(contactsheet_key$id, contactsheet_key$set) %in% paste(dat_cur$id, dat_cur$set))
-	contactsheet_key[desekeys, ]$page <- pageid + runningpagecount
+	
+	contactsheet_tmp <- data.frame(
+	  id = dat_cur$id, 
+	  name = dat_cur$name_prime, 
+	  sex = dat_cur$sex, 
+	  set = dat_cur$set, 
+	  group = dat_cur$group, 
+	  page = pageid
+	)
+	
+	contactsheet_key <- rbind(contactsheet_key, contactsheet_tmp)
 	
 	if(ngroupid == 1) {
 		for(p in 1:npages) {
@@ -228,3 +242,4 @@ for(g in 1:ngroups) {
 }
 contactsheet_key
 }
+
