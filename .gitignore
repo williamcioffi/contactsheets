@@ -1,0 +1,10 @@
+# automatically generated files
+.Rapp.history
+.DS_Store
+.Rhistory
+
+# test photos
+test/
+
+# test outputs
+*.pdf
